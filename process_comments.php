@@ -9,8 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comment = mysqli_real_escape_string($mysqli, $_POST['comment']);
         $postID = $_POST['postID'];
 
-        // Assuming you have a logged-in user and a session variable storing the memberID
-        // If not, adjust the logic to fetch the memberID based on your authentication system
+        // fetch the memberID 
         $memberID = $_SESSION['fldMemberID'];
 
         // Insert the comment into the database
@@ -18,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$postID', '$memberID', '$comment', NOW())";
         $result = $mysqli->query($sql);
 
-        // Check if the insertion was successful
+        // Check if insertion was successful
         if ($result) {
             // Redirect back to the modular forum page
             header('Location: modular_forum_page.php');
             exit();
         } else {
-            echo "Error: " . $mysqli->error;
+            // echo "Error: " . $mysqli->error;
         }
     } else {
         echo "Invalid input data";

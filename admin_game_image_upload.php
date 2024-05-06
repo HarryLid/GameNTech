@@ -13,8 +13,6 @@ if (!isset($_SESSION['fldMemberID']) || !isset($_SESSION['isAdmin']) || $_SESSIO
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,59 +21,62 @@ if (!isset($_SESSION['fldMemberID']) || !isset($_SESSION['isAdmin']) || $_SESSIO
     <title>Image Upload Form</title>
 
     <style>
-        /* Add some styling to make the form look better */
-        body {
-            background-color: #eee;
-            font-family: sans-serif;
-            text-align: center;
-        }
+    /* Add some styling to make the form look better */
+    body {
+        background-color: #000; /* Change background color to black */
+        color: #fff; /* Change text color to white */
+        font-family: sans-serif;
+        text-align: center;
+    }
 
-        form {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-            margin: 50px auto;
-            max-width: 500px;
-            padding: 20px;
-        }
+    form {
+        background-color: #333; /* Change form background color to dark gray */
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        margin: 50px auto;
+        max-width: 500px;
+        padding: 20px;
+    }
 
-        label {
-            color: #333;
-            display: block;
-            margin-bottom: 10px;
-        }
+    label {
+        color: #fff; /* Change label text color to white */
+        display: block;
+        margin-bottom: 10px;
+    }
 
-        input[type="text"],
-        input[type="file"],
-        textarea {
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            display: block;
-            font-size: 16px;
-            margin: 0 0 20px 0;
-            padding: 8px;
-            width: 100%;
-        }
+    input[type="text"],
+    input[type="file"],
+    textarea {
+        background-color: #555; /* Change input background color to darker gray */
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        display: block;
+        font-size: 16px;
+        margin: 0 0 20px 0;
+        padding: 8px;
+        width: 100%;
+        color: #fff; /* Change input text color to white */
+    }
 
-        input[type="submit"] {
-            background-color: #333;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 12px 20px;
-        }
+    input[type="submit"] {
+        background-color: #007bff; /* Change submit button background color to blue */
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 12px 20px;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #444;
-        }
-    </style>
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Change submit button background color on hover */
+    }
+</style>
+
+
 
 </head>
 
 <body>
-
     <!-- Add a heading for the form -->
     <h2> Add upcoming games </h2>
 
@@ -117,6 +118,9 @@ if (!isset($_SESSION['fldMemberID']) || !isset($_SESSION['isAdmin']) || $_SESSIO
         <!-- Add a submit button for the form -->
         <input type="submit" value="Upload Image" name="submit">
     </form>
+    <br>
+    <br>
+    <br>
 
     <script>
 // Get the textarea element

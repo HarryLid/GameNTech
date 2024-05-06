@@ -18,60 +18,58 @@ if (!isset($_SESSION['fldMemberID'])) {
 <style>
     /* Add a container element for the gallery items */
     .gallery-container {
-        display: flex; /* Use flexbox to arrange the items in a row */
-        flex-wrap: wrap; /* Wrap items to the next row if necessary */
-        justify-content: center; /* Center items horizontally */
-        width: 90%; /* Set a fixed width */
-        margin: 0 auto; /* Center the container */
-        box-sizing: border-box; /* Include padding and border in the width */
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: center; 
+        width: 90%; 
+        margin: 0 auto; 
+        box-sizing: border-box; 
         background-color: black;
     }
 
     /* Style the individual gallery items */
     .gallery-item {
-        margin: 10px; /* Add some space around the items */
-        flex: 0 0 calc(25% - 20px); /* Maximum 4 items per row */
-        max-width: calc(25% - 20px); /* Maximum width for each item */
-        background-color: lightgray; /* Add a common background color */
-        border: 1px solid #ccc; /* Add a border around each item */
-        text-align: center; /* Center the text within the item */
-        padding: 10px; /* Add padding to the items */
+        margin: 10px; 
+        flex: 0 0 calc(25% - 20px); 
+        max-width: calc(25% - 20px); 
+        background-color: lightgray; 
+        border: 1px solid #ccc; 
+        text-align: center; 
+        padding: 10px; 
     }
 
     /* Add a hover effect to the items */
     .gallery-item:hover {
-        border: 1px solid #777; /* Change the border color on hover */
-        cursor: pointer; /* Add a pointer cursor on hover */
+        border: 1px solid #777; 
+        cursor: pointer; 
     }
 
-    /* Style the image within the item */
+    /* Style the image  */
     .gallery-item img {
-        max-width: 100%; /* Set maximum width to fit the container */
-        height: auto; /* Keep the aspect ratio of the image */
+        max-width: 100%; 
+        height: auto; 
     }
 
     /* Style the item description */
     .item-desc {
-        padding: 15px; /* Add some padding to the description */
+        padding: 15px; 
     }
 
     /* Responsive styles */
     @media only screen and (max-width: 768px) {
         .gallery-item {
-            flex: 0 0 calc(50% - 20px); /* 50% width for 2 items per row on tablets */
-            max-width: calc(50% - 20px); /* Maximum width for each item */
+            flex: 0 0 calc(50% - 20px); 
+            max-width: calc(50% - 20px);
         }
     }
 
     @media only screen and (max-width: 576px) {
         .gallery-item {
-            flex: 0 0 calc(100% - 20px); /* 100% width for 1 item per row on phones */
-            max-width: calc(100% - 20px); /* Maximum width for each item */
+            flex: 0 0 calc(100% - 20px); 
+            max-width: calc(100% - 20px); 
         }
     }
 </style>
-
-
 
 </head>
 

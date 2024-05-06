@@ -159,6 +159,9 @@ $popularForumsResult = $mysqli->query($popularForumsQuery);
             <span>Up and Coming</span>
         </a>
     </div>
+    <br>
+    <br>
+    <br>
 
     <!-- New div for displaying text -->
     <div class="text-box">

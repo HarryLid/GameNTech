@@ -13,7 +13,6 @@ if (!isset($_SESSION['fldMemberID']) || !isset($_SESSION['isAdmin']) || $_SESSIO
 }
 
 ?>
-
 <head>
 <link rel="stylesheet" type="text/css" href="css/projectAdminWebsiteStyle.css">
 </head>

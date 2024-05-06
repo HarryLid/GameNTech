@@ -8,16 +8,24 @@ include 'config/conn.php';
 if (isset($_POST['process_member_details'])) {
   $id = $_SESSION['fldMemberID'];
 
-  // Delete the member with the specified ID
-  $query = "DELETE FROM `tbl_members` WHERE `fldMemberID` = $id";
-  $result = mysqli_query($mysqli, $query);
+  // Delete member's comments first
+  $query_comments = "DELETE FROM `tbl_forum_comments` WHERE `fldMemberID` = $id";
+  $result_comments = mysqli_query($mysqli, $query_comments);
 
-  if ($result) {
-      // Redirect to the form page or display a message
-      header('Location: login_form.php');
-      exit;
+  if ($result_comments) {
+      // Then delete the member
+      $query_member = "DELETE FROM `tbl_members` WHERE `fldMemberID` = $id";
+      $result_member = mysqli_query($mysqli, $query_member);
+
+      if ($result_member) {
+          // Redirect to the form page or display a message
+          header('Location: login_form.php');
+          exit;
+      } else {
+          echo "Error deleting member record: " . mysqli_error($mysqli);
+      }
   } else {
-      echo "Error deleting record: " . mysqli_error($mysqli);
+      echo "Error deleting comments: " . mysqli_error($mysqli);
   }
 }
 

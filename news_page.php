@@ -11,7 +11,6 @@ if (isset($_SESSION['fldMemberID'])) {
     // User is logged in
 } else {
     // User is not logged in
-    // Display a toast or modal notification here
     // Example: echo "<script>alert('User is not logged in. Please log in.');</script>";
 }
 
@@ -24,8 +23,6 @@ if (isset($_SESSION['fldMemberID'])) {
     <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Internal styles -->
     <style>
         /* Your CSS styles here */
         #text-header {

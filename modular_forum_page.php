@@ -1,110 +1,110 @@
-<?php
-session_start(); // Start session
-include 'config/conn.php'; // Include database connection
-include 'adminCheck/navbarCheck.php'; // Include navbar check for admin
-?>
-
 <!DOCTYPE html>
 <html>
 
+<?php
+session_start(); // Start session
+include 'config/conn.php'; // Include database connection
+include 'adminCheck/navbarCheck.php'; 
+?>
+
 <head>
-<style>
-    /* CSS style sheet for page layout */
-    #text-header {
-        text-align: center;
-        color: white;
-    }
+    <style>
+        /* CSS style sheet for page layout */
+        #text-header {
+            text-align: center;
+            color: white;
+        }
 
-    #post-container {
-        margin-top: 25px;
-        margin-left: 20%;
-        margin-right: 20%;
-    }
-
-    #modular-forum-container {
-        background-color: black; /* Black background for the main container */
-        color: white; /* Text color set to white */
-        padding: 15px; /* Reduced padding for the main container */
-    }
-
-    #post-description-container {
-        display: flex;
-        padding: 15px; /* Reduced padding for the post description container */
-        background-color: black; /* Black background for the post description container */
-        color: white; /* Text color set to white */
-    }
-
-    #member-container {
-        display: flex;
-        padding: 15px; /* Reduced padding for the member container */
-        background-color: black; /* Black background for the member container */
-        color: white; /* Text color set to white */
-    }
-
-    #comments-container {
-        margin-top: 10px;
-        max-width: 1000px; /* Set your desired maximum width for comments container */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .comment-container {
-        background-color: #333; /* Dark background for comments */
-        color: white; /* Text color set to white */
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
-    .comment-container:nth-child(odd) {
-        background-color: #444; /* Lighter background for odd comments */
-    }
-
-    .comment-container:nth-child(even) {
-        background-color: #333; /* Darker background for even comments */
-    }
-
-    #add-comment-container {
-        background-color: black; /* Black background for the comment container */
-        padding: 15px; /* Padding for the comment container */
-        margin-top: 25px;
-        margin-left: 30%;
-        margin-right: 30%;
-    }
-
-    #post-id {
-        color: gray;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-
-    input[type="submit"] {
-        width: 100%; /* Make the submit button full width */
-        background-color: blue; /* Blue background for the submit button */
-        color: white; /* Text color set to white */
-        padding: 10px; /* Adjusted padding for the button */
-    }
-
-    textarea {
-        width: 100%; /* Make the textarea full width */
-        height: 100px;
-        margin-bottom: 10px;
-    }
-
-    /* Media Queries for Responsiveness */
-    @media screen and (max-width: 768px) {
         #post-container {
-            margin-left: 5%;
-            margin-right: 5%;
+            margin-top: 25px;
+            margin-left: 20%;
+            margin-right: 20%;
         }
 
-        #add-comment-container,
-        #modular-forum-container,
-        #comments-container {
-            margin-left: 40%;
-            margin-right: 40%;
+        #modular-forum-container {
+            background-color: black;
+            color: white;
+            padding: 15px;
         }
-    }
-</style>
+
+        #post-description-container {
+            display: flex;
+            padding: 15px;
+            background-color: black;
+            color: white;
+        }
+
+        #member-container {
+            display: flex;
+            padding: 15px;
+            background-color: black;
+            color: white;
+        }
+
+        #comments-container {
+            margin-top: 10px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comment-container {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-container:nth-child(odd) {
+            background-color: #444; /* Lighter background for odd comments */
+        }
+
+        .comment-container:nth-child(even) {
+            background-color: #333; /* Darker background for even comments */
+        }
+
+        #add-comment-container {
+            background-color: black;
+            padding: 15px;
+            margin-top: 25px;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
+        #post-id {
+            color: gray;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            #post-container {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            #add-comment-container,
+            #modular-forum-container,
+            #comments-container {
+                margin-left: 40%;
+                margin-right: 40%;
+            }
+        }
+    </style>
 
 </head>
 
@@ -189,12 +189,14 @@ if ($tempForum == true) {
 
                 <!-- Comment form and container -->
                 <div id="add-comment-container">
-                    <form action="process_comments.php" method="post">
-                        <textarea name="comment" placeholder="Type your comment here"></textarea>
+                    <form action="process_comments.php" method="post" id="comment-form">
+                        <textarea id="comment-text" name="comment" placeholder="Type your comment here"></textarea>
                         <input type="hidden" name="postID" value="<?php echo $postID; ?>">
                         <input type="submit" value="Add Comment">
                     </form>
                 </div>
+                <br>
+                <br>
 
             </body>
 
@@ -216,5 +218,20 @@ if ($tempForum == true) {
 }
 ?>
 
-</html>
+<script>
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        // Get the value of the comment textarea
+        var comment = document.getElementById("comment-text").value.trim();
+        
+        // Check if the comment is empty
+        if (comment === "") {
+            // Prevent the form submission
+            event.preventDefault();
+            
+            // Display an alert or error message
+            alert("Please enter a comment.");
+        }
+    });
+</script>
 
+</html>

@@ -77,7 +77,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a id="logoutLink" class="dropdown-item" href="#logoutModal" data-toggle="modal">Logout</a></li> 
                             <li><a class="dropdown-item" href="foq.php" target="_blank">FOQ</a></li>
-                            <li><a class="dropdown-item" href="Member_Details_Page.php" target="_blank">Profile</a></li>
+                            <li><a class="dropdown-item" href="Member_Details_Page.php" target="_self">Profile</a></li>
                             <li><a class="dropdown-item" href="forum_page.php" target="_self">View Forums</a></li>
                         </ul>
                     </li>
@@ -90,13 +90,14 @@
 // Check if the fldMemberID session variable is set
 if (isset($_SESSION['fldMemberID'])) {
     // The fldMemberID session variable is set, so the user is logged in
-    echo 'Hello ' . $_SESSION['fldUsername'] . ', welcome back!';
+    echo '<span style="color:white;">Hello ' . $_SESSION['fldUsername'] . ', welcome back!</span>';
 } else {
     // The fldMemberID session variable is not set, so the user is not logged in
-    echo 'User is not logged in';
+    echo '<span style="color:white;">User is not logged in</span>';
  //   header ('Location: loginn_form.php');
 }
 ?>
+
 
     <!-- Logout Modal -->
     <div id="logoutModal" class="modal">

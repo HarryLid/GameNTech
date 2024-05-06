@@ -77,9 +77,10 @@ include 'loginNavbar/loginNavbarr.php';
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" title="Please enter a password with at least 8 characters" required minlength="8"><br>
+    <span id="passwordError" style="color: red;"></span>
 
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" title="Please enter a username with at least 3 characters" required minlength="3"><br>
+    <input type="text" id="username" name="username" title="Please enter a username with at least 3 and at most 16 characters" required minlength="3" maxlength="16"><br>
 
     <label for="fname">First Name:</label>
     <input type="text" id="fname" name="fname" title="Please enter your first name" required><br>
@@ -93,6 +94,8 @@ include 'loginNavbar/loginNavbarr.php';
     <!-- A submit button to submit the form data to the server -->
     <input type="submit" name="submit">
 </form>
+
+
 
 </body>
 </html>

@@ -52,7 +52,6 @@ include 'adminCheck/navbarCheck.php';
 
 <body>
     <?php
-    // Your PHP code for querying and displaying news article content...
 
     // SQL query to retrieve news article content using prepared statement
     $sql = "SELECT * FROM `gamentechdb`.`tbl_temp_news`";

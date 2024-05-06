@@ -22,13 +22,15 @@ include 'adminCheck/navbarCheck.php';
     }
 
     .gallery {
-        flex: 0 0 calc(25% - 40px); /* 25% width for 4 images in a row on larger screens */
-        max-width: calc(25% - 40px); /* Maximum width for each gallery item */
+        flex: 0 0 calc(25% - 40px); 
+        max-width: calc(25% - 40px); 
         margin: 20px;
         text-align: center;
         border: 1px solid #ccc;
         padding: 10px;
         position: relative;
+        background-color: black; /* Set container background to black */
+        color: white; /* Set text color to white */
     }
 
     .gallery:hover {
@@ -47,6 +49,7 @@ include 'adminCheck/navbarCheck.php';
         text-align: center;
         font-weight: bold;
         font-size: 1.2em;
+        color: white; /* Set text color to white */
     }
 
     /* Additional styles for the modal */
@@ -57,22 +60,18 @@ include 'adminCheck/navbarCheck.php';
 
     @media only screen and (max-width: 768px) {
         .gallery {
-            flex: 0 0 calc(50% - 40px); /* 50% width for 2 images in a row on tablets */
+            flex: 0 0 calc(50% - 40px); 
             max-width: calc(50% - 40px);
         }
     }
 
     @media only screen and (max-width: 576px) {
         .gallery {
-            flex: 0 0 calc(100% - 40px); /* 100% width for 1 image in a row on phones */
+            flex: 0 0 calc(100% - 40px); 
             max-width: calc(100% - 40px);
         }
     }
 </style>
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -102,7 +101,7 @@ include 'adminCheck/navbarCheck.php';
     <!-- Create the gallery container -->
     <div class="gallery-container">
         <?php
-            // Your PHP code to generate gallery items goes here
+            // PHP code to generate gallery items
             $sql = "SELECT * FROM `tbl_game_release_img` ORDER BY `fldReleaseDate` ASC";
             $result = $mysqli->query($sql);
 
@@ -110,8 +109,8 @@ include 'adminCheck/navbarCheck.php';
                 echo '<div class="gallery">';
                 echo '<a href="#" data-title="' . $row['fldImageTitle'] . '" data-bio="' . $row['fldBio'] . '">';
                 echo '<img src="' . $row['fldPath'] . '" alt="' . $row['fldImageTitle'] . '" width="600" height="400">';
-                echo '<div class="desc"><span class="asc-title"  style="color: white;">Platforms: ' . getPlatforms($row) . '</span></div>';
-                echo '<div class="desc"><span class="asc-title" style="color: white;">Release Date: ' . $row['fldReleaseDate'] . '</span></div>';
+                echo '<div class="desc"><span class="asc-title">Platforms: ' . getPlatforms($row) . '</span></div>';
+                echo '<div class="desc"><span class="asc-title">Release Date: ' . $row['fldReleaseDate'] . '</span></div>';
                 echo '</a>';
                 echo '</div>';
             }
@@ -140,6 +139,10 @@ include 'adminCheck/navbarCheck.php';
             }
         ?>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- Gallery Modal -->
     <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-labelledby="galleryModalLabel" aria-hidden="true">
